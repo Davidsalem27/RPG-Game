@@ -4,7 +4,6 @@ import HomeTown_world as htw
 import House_world as hw
 import pygame as pg
 import os
-import Backgrounds
 WHITE=(255,255,255)
 free_roam_objs={}
 free_roam_environment=[]#,htw.Small_House(),htw.Barbarian()]
