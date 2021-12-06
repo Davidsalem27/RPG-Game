@@ -90,7 +90,7 @@ class Game:
     def __init__(self,background,clock):
         self.background=background
         self.clock=clock
-
+        self.map_blit=0
         self.playing = True
         self.fighting = False
         self.current_state='world'
@@ -104,6 +104,7 @@ class Game:
             if self.fighting:
                 self.switch_screen('battle')
             else:
+
                 self.switch_screen('world')
 
 
@@ -136,8 +137,10 @@ class Game:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.playing = False
-
-
+            # if event.type==pg.KEYDOWN:
+            #
+            #     if event.key==pg.K_ESCAPE:
+            #         self.playing = False
         keys = pg.key.get_pressed()
         if keys[pg.K_ESCAPE]:
             self.playing = False
@@ -146,9 +149,6 @@ class Game:
 
     def world_screen(self):
         WIN.fill(WHITE)
-        #WIN.blit(self.world_map.gui.map, (0, 0))
-        #self.world_map.gui.background_to_draw.draw(WIN)
-        #self.world_map.map_to_draw.draw(WIN)
         WIN.blit(self.world_map.map,(self.world_map.border_rect.x,self.world_map.border_rect.y))
         self.world_map.gui.environment_to_draw.draw(WIN)
         self.world_map.gui.humans_to_draw.draw(WIN)

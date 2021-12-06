@@ -1,4 +1,5 @@
 import pygame as pg
+import os
 FONT_SIZE=20
 
 class Speech_Bubble:
